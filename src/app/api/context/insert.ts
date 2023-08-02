@@ -1,9 +1,9 @@
-import { connect, OpenAIEmbeddingFunction, WriteMode } from 'vectordb';
+import { connect, OpenAIEmbeddingFunction } from 'vectordb';
 import { getDomObjects } from './scrape';
 import crypto from 'crypto';
 
 export async function createEmbeddingsTable(url: string, pages: number) {
-  const db = await connect('data/sample-lancedb')
+  const db = await connect('/tmp/website-lancedb')
   // You need to provide an OpenAI API key, here we read it from the OPENAI_API_KEY environment variable
   const apiKey = process.env.OPENAI_API_KEY ?? ''
 
