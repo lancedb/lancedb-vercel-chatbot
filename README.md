@@ -4,6 +4,8 @@ Use an AI chatbot with website context retrieved from a vector store like LanceD
 ## One click deploy on Vercel
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Flancedb%2Flancedb-vercel-chatbot&env=OPENAI_API_KEY&envDescription=OpenAI%20API%20Key%20for%20chat%20completion.&project-name=lancedb-vercel-chatbot&repository-name=lancedb-vercel-chatbot&demo-title=LanceDB%20Chatbot%20Demo&demo-description=Demo%20website%20chatbot%20with%20LanceDB.&demo-url=https%3A%2F%2Flancedb.vercel.app&demo-image=https%3A%2F%2Fi.imgur.com%2FHk7tXgu.png)
 
+![Demo website landing page](https://i.imgur.com/Hk7tXgu.png)
+
 ## Development
 
 First, rename `.env.example` to `.env.local`, and fill out `OPENAI_API_KEY` with your OpenAI API key. You can get one [here](https://openai.com/blog/openai-api).
@@ -32,7 +34,7 @@ To learn more about LanceDB or Next.js, take a look at the following resources:
 
 ## LanceDB on NextJS
 
-Since LanceDB contains a prebuilt Node binary, you must configure your next config to include the following (this is already done in this template):
+Since LanceDB contains a prebuilt Node binary, you must configure `next.config.js` to include the following (this is already done in this template):
 ```js
 /** @type {import('next').NextConfig} */
 module.exports = ({
