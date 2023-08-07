@@ -4,14 +4,14 @@ import { useState, useEffect } from 'react'
 import Chat from './components/Chat'
 import Form from './components/Form'
 import lancedbLogo from '../../public/lancedb.svg'
-import vercelLogo from '../../public/vercel.svg'
+import nextjsLogo from '../../public/nextjs.svg'
 
 export default function Home() {
   const [data, setData] = useState('');
   const [state, setState] = useState({
     chat: false,
-    pages: 10,
-    website: 'https://vercel.com/sitemap.xml',
+    pages: 1,
+    website: 'https://nextjs.org/sitemap.xml',
     table: '',
   })
 
@@ -24,7 +24,7 @@ export default function Home() {
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
-            <Image src={vercelLogo} className="h-8 w-auto" alt="Vercel logo" />
+            <Image src={nextjsLogo} className="h-8 w-auto" alt="NextJS logo" />
           </div>
           <Chat state={state} setState={setState} />
         </div>
@@ -36,7 +36,7 @@ export default function Home() {
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
-              <Image src={vercelLogo} className="h-4 md:h-6 w-auto" alt="Vercel logo" />
+              <Image src={nextjsLogo} className="h-4 md:h-6 w-auto" alt="NextJS logo" />
             </div>
             <h5 className="mb-2 text-4xl md:text-8xl font-bold tracking-tight text-gray-900">AI Chatbot with <span className="text-lancedb">any website</span></h5>
             <p className="mb-5 text-xl font-normal text-gray-700">Use an AI chatbot with website context retrieved from a vector store like LanceDB. LanceDB is lightweight and can be <b>embedded directly into NextJS</b>, with data stored on-prem. </p>

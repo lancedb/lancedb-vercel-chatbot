@@ -1,5 +1,5 @@
 {
-  "name": "lancedb-vercel-chatbot",
+  "name": "lancedb-nextjs-chatbot",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,11 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@mozilla/readability": "^0.4.4",
-    "@timfish/webpack-asset-relocator-loader": "^0.1.0",
-    "@types/dompurify": "^3.0.2",
-    "@types/jsdom": "^21.1.1",
-    "@types/mozilla__readability": "^0.4.0",
     "@types/node": "20.4.4",
     "@types/puppeteer": "^7.0.4",
     "@types/react": "18.2.15",
@@ -21,12 +16,9 @@
     "@vercel/webpack-asset-relocator-loader": "^1.7.3",
     "ai": "^2.1.27",
     "autoprefixer": "10.4.14",
-    "dompurify": "^3.0.5",
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.12",
-    "jsdom": "^22.1.0",
     "next": "13.4.12",
-    "node-loader": "^2.0.0",
     "openai": "^3.3.0",
     "openai-edge": "^1.2.2",
     "postcss": "8.4.27",

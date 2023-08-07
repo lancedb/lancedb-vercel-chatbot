@@ -31,17 +31,19 @@ export default function Form({ state, setState }: { state: MainState, setState: 
         <div className="basis-1/2 w-full">
           <label htmlFor="website" className="block mb-2 text-md font-medium text-gray-900">Website sitemap</label>
           <input value={state.website}
-            onChange={e => setState({ ...state, website: e.target.value })} className="mb-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="https://vercel.com/sitemap.xml" required />
+            onChange={e => setState({ ...state, website: e.target.value })} className="mb-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="https://nextjs.org/sitemap.xml" required />
         </div>
         <div className="basis-1/2 w-full">
           <label htmlFor="pages" className="block mb-2 text-md font-medium text-gray-900">Pages to load</label>
           <ul className="mb-2 flex justify-start md:flex-wrap text-sm font-medium text-center text-gray-500 dark:text-gray-400">
-            {[10, 50, 100].map(pageNum => (
+            {[1,5,10].map(pageNum => (
               <li key={pageNum} className="mr-2">
                 <button onClick={e => {
                   e.preventDefault()
                   setState({ ...state, pages: pageNum })
-                }} className={`inline-block px-4 py-3 ${state.pages == pageNum ? 'text-white bg-lancedb rounded-lg' : 'rounded-lg hover:text-gray-900 hover:bg-gray-100'}`}>{pageNum} pages</button>
+                }} className={`inline-block px-4 py-3 ${state.pages == pageNum ? 'text-white bg-lancedb rounded-lg' : 'rounded-lg hover:text-gray-900 hover:bg-gray-100'}`}>
+                  {pageNum} {pageNum == 1 ? 'page' : 'pages'}
+                </button>
               </li>
             ))}
           </ul>
@@ -57,7 +59,7 @@ export default function Form({ state, setState }: { state: MainState, setState: 
 
         {loading ? (
           <div className="p-2 text-sm text-lancedb rounded-lg bg-lancedb bg-opacity-10" role="alert">
-            Loading {state.pages} pages from {websiteBase} into LanceDB. This may take a while...
+            Loading {state.pages} {state.pages === 1 ? 'page': 'pages'} from {websiteBase} into LanceDB. This may take a while...
           </div>
         ) : null}
 
