@@ -58,5 +58,4 @@ To deploy on Vercel, we need to make sure that the NodeJS runtime static file an
   },
   ...
 }
-
 ```
