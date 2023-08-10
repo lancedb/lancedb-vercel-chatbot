@@ -1,7 +1,0 @@
-{
-  "functions": {
-    "src/app/api/**": {
-      "includeFiles": "node_modules/@lancedb/vectordb-linux-x64-gnu/**"
-    }
-  }
-}

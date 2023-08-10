@@ -34,31 +34,29 @@ To learn more about LanceDB or Next.js, take a look at the following resources:
 
 ## LanceDB on NextJS and Vercel
 
-Since LanceDB contains a prebuilt Node binary, you must configure `next.config.js` to exclude it from webpack. In order to deploy it on Vercel, you need to make sure this binary is included in the output for the serverless functions.
+FYI: these configurations have been pre-implemented in this template.
+
+Since LanceDB contains a prebuilt Node binary, you must configure `next.config.js` to exclude it from webpack. This is required for both using NextJS and deploying on Vercel.
 ```js
 /** @type {import('next').NextConfig} */
 module.exports = ({
-  experimental: {
-    outputFileTracingIncludes: {
-      "src/app/api/**": [
-          "node_modules/@lancedb/vectordb-linux-x64-gnu",
-      ],
-  },
-  },
-  webpack(config, { isServer }) {
+  webpack(config) {
     config.externals.push({ vectordb: 'vectordb' })
     return config;
   }
 })
 ```
 
-To deploy on Vercel, include the binary in serverless functions via the functions property of `vercel.json` as well.
+To deploy on Vercel, we need to make sure that the NodeJS runtime static file analysis for Vercel can find the binary, since LanceDB uses dynamic imports by default. We can do this by modifying `package.json` in the `scripts` section.
 ```json
 {
-  "functions": {
-    "src/app/api/**": {
-      "includeFiles": "node_modules/@lancedb/vectordb-linux-x64-gnu/**"
-    }
-  }
+  ...
+  "scripts": {
+    ...
+    "vercel-build": "sed -i 's/nativeLib = require(`@lancedb\\/vectordb-\\${currentTarget()}`);/nativeLib = require(`@lancedb\\/vectordb-linux-x64-gnu`);/' node_modules/vectordb/native.js && next build",
+    ...
+  },
+  ...
 }
+
 ```
