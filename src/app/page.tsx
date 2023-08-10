@@ -20,11 +20,11 @@ export default function Home() {
       {state.chat ? (
         <div className="flex h-full flex-grow flex-col justify-end items-center p-6 md:p-24">
           <div className="fixed top-0 py-4 text-center w-screen bg-white flex flex-row space-x-2 items-center justify-center">
-            <Image src={lancedbLogo} className="h-10 w-auto" alt="LanceDB logo" />
+            <a href="https://lancedb.com" target="_blank"><Image src={lancedbLogo} className="h-10 w-auto" alt="LanceDB logo" /></a>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
-            <Image src={vercelLogo} className="h-8 w-auto" alt="Vercel logo" />
+            <a href="https://vercel.com" target="_blank"><Image src={vercelLogo} className="h-8 w-auto" alt="Vercel logo" /></a>
           </div>
           <Chat state={state} setState={setState} />
         </div>
@@ -32,14 +32,20 @@ export default function Home() {
         <div className="p-6 md:p-24">
           <div className="md:w-3/4">
             <div className="py-4 flex flex-row w-screen items-center space-x-3">
-              <Image src={lancedbLogo} className="h-5 md:h-8 w-auto" alt="LanceDB logo" />
+              <a href="https://lancedb.com" target="_blank"><Image src={lancedbLogo} className="h-5 md:h-8 w-auto" alt="LanceDB logo" /></a>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
-              <Image src={vercelLogo} className="h-4 md:h-6 w-auto" alt="Vercel logo" />
+              <a href="https://vercel.com" target="_blank"><Image src={vercelLogo} className="h-4 md:h-6 w-auto" alt="Vercel logo" /></a>
             </div>
             <h5 className="mb-2 text-4xl md:text-8xl font-bold tracking-tight text-gray-900">AI Chatbot with <span className="text-lancedb">any website</span></h5>
-            <p className="mb-5 text-xl font-normal text-gray-700">Use an AI chatbot with website context retrieved from a vector store like LanceDB. LanceDB is lightweight and can be <b>embedded directly into NextJS</b>, with data stored on-prem. </p>
+            <p className="block mb-5 text-xl font-normal text-gray-700">Use an AI chatbot with website context retrieved from a vector store like LanceDB. LanceDB is lightweight and can be <b>embedded directly into <a href="https://nextjs.org" target="_blank" className="inline-flex items-center font-medium text-lancedb hover:underline">
+              Next.js</a></b>, with data stored on-prem. <a href="https://github.com/lancedb/lancedb-vercel-chatbot" target="_blank" className="inline-flex items-center font-medium text-lancedb hover:underline">
+                Visit chatbot repo
+                <svg className="w-4 h-4 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                </svg>
+              </a></p>
             <Form state={state} setState={setState} />
           </div>
 
