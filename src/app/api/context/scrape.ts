@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { load, type Element } from 'cheerio';
 
 interface Entry {
@@ -7,8 +6,8 @@ interface Entry {
 }
 
 async function getWebsiteSitemap(url: string, pages: number): Promise<string[]> {
-  const response = await axios.get(url);
-  const $ = load(response.data);
+  const response = await fetch(url);
+  const $ = load(await response.text());
 
   const sitemapLinks: string[] = $('loc')
     .map((index: number, element: Element) => $(element).text().trim())
@@ -23,8 +22,8 @@ async function getEntriesFromLinks(links: string[]): Promise<Entry[]> {
   for (const link of links) {
     console.log('Scraping ', link);
     try {
-      const response = await axios.get(link);
-      const $ = load(response.data);
+      const response = await fetch(link);
+      const $ = load(await response.text());
 
       const contentArray: string[] = [];
       $('p').each((index: number, element: Element) => {
