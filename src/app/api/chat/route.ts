@@ -15,7 +15,7 @@ export async function POST(req: Request) {
   // Extract the `messages` from the body of the request
   const { messages, table } = await req.json()
 
-  const baseUrl = process.env.BASE_URL ? process.env.BASE_URL : 'http://localhost:3000'
+  const baseUrl = process.env.VERCEL_URL ? 'https://' + process.env.VERCEL_URL : 'http://localhost:3000'
   const context = await fetch(`${baseUrl}/api/retrieve`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },

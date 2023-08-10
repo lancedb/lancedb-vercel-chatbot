@@ -1,15 +1,14 @@
 /** @type {import('next').NextConfig} */
 module.exports = ({
+  experimental: {
+    outputFileTracingIncludes: {
+      "src/app/api/**": [
+          "node_modules/@lancedb/vectordb-linux-x64-gnu",
+      ],
+  },
+  },
   webpack(config, { isServer }) {
-    if (isServer) {
-      config.module.rules.push({
-        test: /[/\\]node_modules[/\\]vectordb[/\\].+\.(m?js|node)$/,
-        parser: { amd: false },
-        use: {
-          loader: '@vercel/webpack-asset-relocator-loader',
-        }
-      })
-    }
+    config.externals.push({ vectordb: 'vectordb' })
     return config;
   }
 })

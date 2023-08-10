@@ -36,7 +36,7 @@ export default function Form({ state, setState }: { state: MainState, setState: 
         <div className="basis-1/2 w-full">
           <label htmlFor="pages" className="block mb-2 text-md font-medium text-gray-900">Pages to load</label>
           <ul className="mb-2 flex justify-start md:flex-wrap text-sm font-medium text-center text-gray-500 dark:text-gray-400">
-            {[1,5,10].map(pageNum => (
+            {[1,3,5].map(pageNum => (
               <li key={pageNum} className="mr-2">
                 <button onClick={e => {
                   e.preventDefault()
@@ -59,7 +59,7 @@ export default function Form({ state, setState }: { state: MainState, setState: 
 
         {loading ? (
           <div className="p-2 text-sm text-lancedb rounded-lg bg-lancedb bg-opacity-10" role="alert">
-            Loading {state.pages} {state.pages === 1 ? 'page': 'pages'} from {websiteBase} into LanceDB. This may take a while...
+            Loading {state.pages} {state.pages === 1 ? 'page': 'pages'} from {websiteBase} into LanceDB. This may take a few seconds...
           </div>
         ) : null}
 
